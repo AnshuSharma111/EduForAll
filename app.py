@@ -4,12 +4,9 @@ from bs4 import BeautifulSoup
 import backend
 import openai
 
+
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Set a secret key for session management
-
-API_KEY = "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"
-openai.api_key = API_KEY
-client = openai.OpenAI(api_key=API_KEY)
 
 @app.route('/')
 def index():
@@ -27,12 +24,22 @@ def result():
 
     if data:
         # Wikipedia processing
+        # gpt_out = backend.chatgpt_res(data=data)
+
         wiki_out = backend.wiki_summary(data=data)
+
 
         # Google search processing
         google_out = backend.google_res(data=data)
+
+        #Youttube links
+        yt_out = backend.youtube_links(query=data)
+
+        #google books output
+        books_out = backend.google_book_search(query=data)
         
-        return render_template('page2.html', wiki_message=wiki_out, google_message= google_out)
+        return render_template('page2.html',google_message= google_out, youtube_message=yt_out,books_message=books_out,wiki_message=wiki_out) 
+    #gpt_message=gpt_out,
     else:
         error_message = 'Data not found in session'
         return render_template('page2.html', error=error_message)

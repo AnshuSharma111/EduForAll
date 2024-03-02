@@ -15,7 +15,7 @@
   <div class="topic">
     "Name of the Topic"
   </div>
-  <div class="centre">
+<div class="centre">
     <div class="left">
       <div class="top">
         <div class="divtitle">Website Links</div>
@@ -34,59 +34,57 @@
       <div class="line"></div>
       <div class="bottom">
         <div class="divtitle">PDF Links</div>
-        <p id="bottompara">
-          Atque, dolorum laboriosam commodi ipsam perspiciatis praesentium laudantium ut saepe unde tenetur quidem
-          expedita beatae quam necessitatibus, recusandae officiis temporibus ipsa nobis! Quo praesentium id placeat in
-          animi adipisci quasi.
-          Molestiae expedita veniam quidem provident porro consectetur nulla distinctio nemo odit, praesentium
-          laudantium dolorum recusandae accusamus itaque vero. Omnis temporibus reiciendis optio similique adipisci
-          exercitationem magnam dolorum eveniet autem sequi.
-          Quasi illum maxime quisquam culpa dolorum quis, tenetur nulla ipsa nam cum possimus id repudiandae iste quas
-          natus velit odio laborum ea! Suscipit autem animi, voluptates tenetur labore maxime earum?
-          Quam sapiente fugit qui harum blanditiis commodi. Ut accusamus eaque, nobis iure ab impedit velit, ipsum vel
-          culpa cumque voluptatem explicabo dolorem autem nam sunt nostrum molestiae soluta accusantium laudantium.
-        </p>
+        
+            {% if books_message %}
+        
+        <ul>
+                    {% for title, link in books_message %}
+                        <li>
+                            <h3>{{ title }}</h3>
+                            <a href="{{ link }}" target="_blank"><h3>{{ link }}</h3></a>
+                        </li>
+                    {% endfor %}
+        </ul>
+        {% endif %}
+        
       </div>
     </div>
 
     <div class="right">
       <div class="divtitle">Summary</div>
-      <p id="rightpara">
+      <p id="rightpara" >
+        <!-- {% if gpt_message %}
+            <pre>{{ gpt_message }}</pre>
+        {% endif %}
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %} -->
         {% if wiki_message %}
-            <pre>{{ wiki_message }}</pre>
+            <pre style="white-space: pre-wrap; font-size: large;font-weight: 500;font-family:Roboto,Arial">{{ wiki_message }}</pre>
         {% endif %}
         {% if error %}
             <p class="error">{{ error }}</p>
         {% endif %}
       </p>
     </div>
-  </div>
+</div>
   
   <div class="video">
-    <h1>Search Results for "{{ search_query }}"</h1>
-    {% if video_results %}
+    {% if youtube_message %}
         <ul>
-            {% for video in video_results %}
-                <li>
-                    <h2>{{ video.title }}</h2>
-                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
-                    <p>Video ID: {{ video.id }}</p>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No videos found for "{{ search_query }}"</p>
-    {% endif %}
-    <a href="/">Back to Search</a>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
+                {% for link, num in youtube_message %}
+                    {% if num < 5%}
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
+                    {%endif%}
+                    {% if num == 5%}
+                    <br>
+                    {% endif %}
+                    {% if num >= 5%}
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
+                    {% endif %}
                 {% endfor %}
-            </ul>
+        </ul>
         {% endif %}
-    {% endwith %}
 </body>
 
 </html>
