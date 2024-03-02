@@ -36,7 +36,7 @@ def result():
         books_out = backend.google_book_search(query=data)
         
         return render_template('page2.html',title = title,google_message= google_out, youtube_message=yt_out,books_message=books_out,wiki_message=wiki_out) 
-        #gpt_message = gpt_out,
+        #wiki_message=wiki_out
     else:
         error_message = 'Data not found in session'
         return render_template('page2.html', error=error_message)

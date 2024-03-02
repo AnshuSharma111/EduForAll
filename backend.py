@@ -4,7 +4,7 @@ from pytube import Search
 import openai
 
 #API for chatGPT
-API_KEY = "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"
+API_KEY = "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"
 client = openai.OpenAI(api_key=API_KEY)
 
 def wiki_summary(data: str)-> str:
