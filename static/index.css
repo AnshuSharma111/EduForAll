@@ -84,6 +84,10 @@ button {
         cursor: pointer;
         font-family: 'goldplay semibold';
 }
+.page2hed{
+        color: black;
+        text-decoration: none;
+}
 
 footer{
         position: absolute;

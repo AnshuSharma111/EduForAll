@@ -13,7 +13,7 @@
 <body>
     <div id="secondnav">
         <nav id="nav" class="secnv">
-            <div class="hed" href="index.html">EduForAll</div>
+            <div class="hed"> <a href="/" class="page2hed">EduForAll</a></div>
         </nav>
     </div>
     <div class="topic">
@@ -53,8 +53,8 @@
         <div class="right">
             <div class="divtitle">Summary</div>
             <p id="rightpara">
-                {% if wiki_message %}
-                <pre style="white-space: pre-wrap; font-size: large;font-weight: 500;font-family:Roboto,Arial">{{ wiki_message }}</pre>
+                {% if gpt_message %}
+                <pre style="white-space: pre-wrap; font-size: large;font-weight: 500;font-family:Roboto,Arial">{{ gpt_message }}</pre>
                 {% endif %}
                 {% if error %}
                 <p class="error">{{ error }}</p>
