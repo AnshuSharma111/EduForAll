@@ -2,7 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 from pytube import Search
 import openai
-API_KEY = "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"
+
+#API for chatGPT
+API_KEY = "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"
 client = openai.OpenAI(api_key=API_KEY)
 
 def wiki_summary(data: str)-> str:
@@ -69,17 +71,12 @@ def youtube_links(query, num_results=10):
     
     return video_urls
 
-
-
-
-
 def google_book_search(query):
     url = f"https://www.google.com/search?q={query}+site:books.google.com"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36'
     }
     response = requests.get(url, headers=headers)
-    print(response)
     soup = BeautifulSoup(response.text, 'html.parser')
     search_results = soup.find_all('div', class_='tF2Cxc')
     print(response.status_code)
@@ -88,4 +85,6 @@ def google_book_search(query):
         title = result.find('h3').text
         link = result.a['href']
         books.append((title, link))
+    for i, j in books:
+        print(i, j)
     return books

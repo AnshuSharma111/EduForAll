@@ -87,9 +87,9 @@
   }
   
   .topic {
-    background-color: #8e6929;
+    background-color: transparent;
     height: 6vh;
-    width: 15vw;
+    width: 20vw;
     border-radius: 15px;
     display: flex;
     justify-content: center;

@@ -13,7 +13,7 @@
     <nav id="nav" class="secnv"><div class="hed" href="index.html">EduForAll</div> </nav>
   </div>
   <div class="topic">
-    "Name of the Topic"
+    <h3>{{title}}</h3>
   </div>
 <div class="centre">
     <div class="left">
@@ -34,18 +34,16 @@
       <div class="line"></div>
       <div class="bottom">
         <div class="divtitle">PDF Links</div>
-        
             {% if books_message %}
-        
         <ul>
-                    {% for title, link in books_message %}
-                        <li>
-                            <h3>{{ title }}</h3>
-                            <a href="{{ link }}" target="_blank"><h3>{{ link }}</h3></a>
-                        </li>
-                    {% endfor %}
+              {% for title, link in books_message %}
+                  <li>
+                      <h3>{{ title }}</h3>
+                      <a href="{{ link }}" target="_blank"><h3>{{ link }}</h3></a>
+                    </li>
+              {% endfor %}
         </ul>
-        {% endif %}
+              {% endif %}
         
       </div>
     </div>
@@ -53,12 +51,12 @@
     <div class="right">
       <div class="divtitle">Summary</div>
       <p id="rightpara" >
-        <!-- {% if gpt_message %}
-            <pre>{{ gpt_message }}</pre>
+        <!--{% if gpt_message %}
+            <p>{{ gpt_message }}</p>
         {% endif %}
         {% if error %}
             <p class="error">{{ error }}</p>
-        {% endif %} -->
+        {% endif %}-->
         {% if wiki_message %}
             <pre style="white-space: pre-wrap; font-size: large;font-weight: 500;font-family:Roboto,Arial">{{ wiki_message }}</pre>
         {% endif %}
