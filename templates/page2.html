@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="{{url_for('static',filename='page2.css')}}">
-    <link rel="stylesheet" href="static\note.css"> <!-- Add this line for the note styles -->
-    <script src="static\note.js" defer></script> <!-- Add this line for the note script -->
+    <title>EduForAll</title>
 </head>
 
 <body>
@@ -15,21 +13,31 @@
         <nav id="nav" class="secnv">
             <div class="hed"> <a href="/" class="page2hed">EduForAll</a></div>
         </nav>
-    </div>
-    <div class="topic">
-        <h3>{{title}}</h3>
-    </div>
-    <div class="centre">
-        <div class="left">
-            <div class="top">
-                <div class="divtitle">Website Links</div>
-                {% if google_message %}
-                <ul>
+  
+        <main>
+           <div class="top">
+                <div class="summary">
+                    <div class="divtitle">Summary</div>
+                    {% if wiki_message %}
+                    <pre style="white-space: pre-wrap; font-size: x-large;font-weight: 500;font-family:cursive;padding: 10px;">{{ wiki_message }}</pre>
+                    {% endif %}
+                    {% if error %}
+                    <p class="error">{{ error }}</p>
+                    {% endif %}
+                </div>
+           </div>
+
+            <div class="centre">
+                <div class="link left">
+                    <div class="divtitle">Website Links</div>
+                    {% if google_message %}
+        
+                    <ul>
                     {% for title, link in google_message %}
-                    <li>
-                        <h3>{{ title }}</h3>
-                        <a href="{{ link }}" target="_blank"><h3>{{ link }}</h3></a>
-                    </li>
+                        <li>
+                            <h3>{{ title }}</h3>
+                            <a href="{{ link }}" target="_blank"><h3>{{ link }}</h3></a>
+                        </li>
                     {% endfor %}
                 </ul>
                 {% endif %}
@@ -66,39 +74,25 @@
     <div class="video">
         {% if youtube_message %}
         <ul>
-            {% for link, num in youtube_message %}
-            {% if num < 5%}
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
-            {%endif%}
-            {% if num == 5%}
-            <br>
+                {% for link, num in youtube_message %}
+                    {% if num < 5%}
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
+                        {%endif%}
+                        {% if num == 5%}
+                            <br>
+                        {% endif %}
+                        {% if num >= 5%}
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen><iframe>
+                            {% endif %}
+                        {% endfor %}
+                </ul>
             {% endif %}
-            {% if num >= 5%}
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
-            {% endif %}
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </div>
+            </div>
+        </main>
 
-    <!-- Plus icon at the bottom right corner -->
-    <div class="plus-icon" id="plusIcon" onclick="openSlider()">&#43;</div>
-
-
-    <!-- Slider for adding notes -->
-    <div class="slider" id="slider">
-        <div class="slider-content">
-            <h2>Add Note</h2>
-            <input type="text" id="noteInput" placeholder="Enter your note">
-            <button onclick="addNote()">Add Note</button>
-            <span class="close-icon" onclick="closeSlider()">&#10006;</span>
-        </div>
+        
     
-    <div class="notes-container">
-      <h2>Your Notes</h2>
-      <div id="savedNotes"></div>
-    </div>
-  </div>
+        <script src="/test.js"></script>
 
 </body>
 </html>
