@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='page2.css')}}">
+</head>
+
+<body>
+  <div id="secondnav">
+    <nav id="nav" class="secnv"><a class="hed" href="index.html">EduForAll</a> </nav>
+  </div>
+  <div class="topic">
+    "Name of the Topic"
+  </div>
+  <div class="centre">
+    <div class="left">
+      <div class="top">
+        <div class="divtitle">Website Links</div>
+        <pre id="toppara">
+          {% if google_message %}
+            <pre>{{ google_message }}</pre>
+          {% endif %}
+          {% if error %}
+            <pre class="error">{{ error }}</pre>
+          {% endif %}
+        </pre>
+      </div>
+      <div class="line"></div>
+      <div class="bottom">
+        <div class="divtitle">PDF Links</div>
+        <p id="bottompara">
+          Atque, dolorum laboriosam commodi ipsam perspiciatis praesentium laudantium ut saepe unde tenetur quidem
+          expedita beatae quam necessitatibus, recusandae officiis temporibus ipsa nobis! Quo praesentium id placeat in
+          animi adipisci quasi.
+          Molestiae expedita veniam quidem provident porro consectetur nulla distinctio nemo odit, praesentium
+          laudantium dolorum recusandae accusamus itaque vero. Omnis temporibus reiciendis optio similique adipisci
+          exercitationem magnam dolorum eveniet autem sequi.
+          Quasi illum maxime quisquam culpa dolorum quis, tenetur nulla ipsa nam cum possimus id repudiandae iste quas
+          natus velit odio laborum ea! Suscipit autem animi, voluptates tenetur labore maxime earum?
+          Quam sapiente fugit qui harum blanditiis commodi. Ut accusamus eaque, nobis iure ab impedit velit, ipsum vel
+          culpa cumque voluptatem explicabo dolorem autem nam sunt nostrum molestiae soluta accusantium laudantium.
+        </p>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="divtitle">Summary</div>
+      <p id="rightpara">
+        {% if wiki_message %}
+            <p>{{ wiki_message }}</p>
+        {% endif %}
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+  
+  <div class="video">
+    <h1>Search Results for "{{ search_query }}"</h1>
+    {% if video_results %}
+        <ul>
+            {% for video in video_results %}
+                <li>
+                    <h2>{{ video.title }}</h2>
+                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                    <p>Video ID: {{ video.id }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No videos found for "{{ search_query }}"</p>
+    {% endif %}
+    <a href="/">Back to Search</a>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+
+</html>

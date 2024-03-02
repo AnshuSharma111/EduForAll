@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduForAll</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+  <div class="main">
+    <div>
+      <nav id="nav"><a class="hed" href="index.html">EduForAll</a> </nav>
+    </div>
+      <div id="title">
+        <h2>EduForAll</h2>
+      </div>
+
+      <div class="searchb">
+
+        <form id ="searchform"action="/process" method="post">
+          <input type="text" name="messageInput" id="bar" placeholder="Search">
+          <button class="searchbutton" type="submit"> <img src="icons/loupe.png" alt="search" width="30px" height="30px"> 
+          </button>
+
+          </form>
+
+      </div>
+  </div>
+
+  <div>
+    <footer>
+      <div class="footer">
+
+        <p>EduForAll
+          © 2023 EduForAll. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="https://www.gmail.com" target="_blank"> <img class=img src="icons/email.png" alt="email"></a>
+          <a href="https://instagram.com" target="_blank"><img class=img src="icons/instagram.png" alt="instagram"></a>
+          <a href="https://twitter.com" target="_blank"> <img class=img src="icons/twitter.png" alt="twitter"></a>
+        </div>
+
+    </footer>
+  </div>
+  <script src="{{url_for('static',filename='script.css')}}"></script>
+  </div>
+
+
+
+</body>
+
+</html>
