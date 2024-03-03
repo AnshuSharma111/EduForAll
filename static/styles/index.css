@@ -71,7 +71,7 @@ input[type="text"] {
         border: 2px solid black;
         width: 35vw;
         padding: 10px;
-        font-size: 30px;
+        font-size: 32.5px;
 }
 
 input[type="text"]:focus {
@@ -99,6 +99,7 @@ button {
 footer{
         position: absolute;
         bottom: 0px;
+        left: 5px;
 }
 
 
@@ -109,4 +110,68 @@ textarea::placeholder {
 
 li{
         list-style-type: decimal;
+}
+
+.ideal{
+        width: 100px;
+        height: 100px;
+        
+}
+
+.atlog{
+        position: absolute;
+        top: 110px;
+        left: 258px;
+        opacity: 0.2;
+}
+
+.codlog{
+        position: absolute;
+        top: 682px;
+        left: 435px;
+        opacity: 0.2;
+}
+.errlog{
+        position: absolute;
+        top: 733px;
+        left: 1071px;
+        opacity: 0.2;
+}
+.flalog{
+        position: absolute;
+        top: 2px;
+        left: 1240px;
+        opacity: 0.2;
+}
+
+.litlog{
+        position: absolute;
+        top: 394px;
+        left: 74px;
+        opacity: 0.2;
+}
+
+.loglog{
+        position: absolute;
+        top: 309px;
+        left: 1580px;
+        opacity: 0.2;
+}
+
+.ptlog{
+        position: absolute;
+        top: 672px;
+        left: 1623px;
+        opacity: 0.2;
+}
+
+.useful-res{
+        position: relative;
+        top: 39px;
+        left: 19px;
+        color: inherit;
+        text-decoration: none;
+        font-size: 30px;
+        color: #8D4E1D;
+        font-family: 'playfair display';
 }
