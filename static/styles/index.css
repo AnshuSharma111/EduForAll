@@ -119,47 +119,47 @@ li{
 }
 
 .atlog{
-        position: absolute;
-        top: 110px;
-        left: 258px;
+        position: fixed;
+        top: 10%;
+        left: 23%;
         opacity: 0.2;
 }
 
 .codlog{
-        position: absolute;
+        position: fixed;
         top: 682px;
         left: 435px;
         opacity: 0.2;
 }
 .errlog{
-        position: absolute;
+        position: fixed;
         top: 733px;
         left: 1071px;
         opacity: 0.2;
 }
 .flalog{
-        position: absolute;
+        position: fixed;
         top: 2px;
         left: 1240px;
         opacity: 0.2;
 }
 
 .litlog{
-        position: absolute;
+        position: fixed;
         top: 394px;
         left: 74px;
         opacity: 0.2;
 }
 
 .loglog{
-        position: absolute;
+        position: fixed;
         top: 309px;
         left: 1580px;
         opacity: 0.2;
 }
 
 .ptlog{
-        position: absolute;
+        position: fixed;
         top: 672px;
         left: 1623px;
         opacity: 0.2;
