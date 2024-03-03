@@ -4,25 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='/styles/index.css')}}">
     <title>EduForAll</title>
 </head>
 
 <body>
-
-        <!--<nav id="nav-logo"><img src="static\transparentLogo.png" alt="EduForAll" id="logo"></nav>-->
   
         <main>
-          <div class = "logo">
-            <video autoplay loop muted width="150" height="150">
-              <source src="static\aniLogo.mp4" type="video/mp4">
-            </video>  
-          </div>
-           <img class="barTitle" src="static\Edu For All.png" alt="Logo image">
+           <img class="barTitle" src="static\sprites\Edu For All.png" alt="Logo image">
             <!--<p class="page-heading" style="font-size: larger;"><h1>EduForAll</h1></p>-->
             <form id ="searchform"action="/process" method="post">
             <div class="search-container">
-                <input type="text" placeholder="" name="messageInput" id="bar">
+                <input type="text" placeholder="Enter a Topic..." name="messageInput" id="bar">
                 <button type="submit" class="searchbutton">Search</button>
             </div>
             </form>

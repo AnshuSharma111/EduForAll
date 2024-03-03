@@ -10,13 +10,18 @@
 
 body {
 
-        background-image: url('background.png');
+        background-image: url('/static/sprites/background.png');
         background-size: cover;
         margin: 0;
 
 }
 
 
+.search-container{
+        border-radius: 20px;
+        box-shadow: 8px 10px 0px black;
+        background-color: black;
+}
 
 #navbar-logo {
         display: flex;
@@ -29,8 +34,8 @@ img {
         padding-bottom: 20px;
         left: 0px;
         top: 0px;
-        height: 120px;
-        width: 425px;
+        height: 150px;
+        width: 500px;
 }
 
 .barTitle{
@@ -50,6 +55,7 @@ main {
 
 .search-container {
         text-align: center;
+        
 }
 
 .page-heading {
@@ -62,11 +68,10 @@ main {
 input[type="text"] {
         background-color: #FACC9B;
         border-radius: 20px 5px 5px 20px;
-        border: none;
+        border: 2px solid black;
+        width: 35vw;
         padding: 10px;
-        font-size: 40px;
-        margin-right: 5px;
-        margin-right: 5px;
+        font-size: 30px;
 }
 
 input[type="text"]:focus {
@@ -75,17 +80,29 @@ input[type="text"]:focus {
 
 
 button {
+        border:2px solid black;
+        position: relative;
+        right: 0px;
         padding: 10px 20px;
         border-radius: 5px 20px 20px 5px;
-        font-size: 37px;
+        font-size: 30px;
         background-color: #FACC9B;
         color: #8D4E1D;
-        border: none;
         cursor: pointer;
         font-family: 'goldplay semibold';
+}
+.page2hed{
+        color: black;
+        text-decoration: none;
 }
 
 footer{
         position: absolute;
         bottom: 0px;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+    font-size: 19.45px;
 }

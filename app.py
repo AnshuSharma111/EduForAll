@@ -21,10 +21,10 @@ def result():
 
     if data:
         # Wikipedia processing
-        wiki_out = backend.wiki_summary(data=data)
+        #wiki_out = backend.wiki_summary(data=data)
 
         #gpt processing
-        #gpt_out = backend.chatgpt_res(data=data)
+        gpt_out = backend.chatgpt_res(data=data)
 
         # Google search processing
         google_out = backend.google_res(data=data)
@@ -35,7 +35,7 @@ def result():
         #google books output
         books_out = backend.google_book_search(query=data)
         
-        return render_template('page2.html',title = title,google_message= google_out, youtube_message=yt_out,books_message=books_out,wiki_message=wiki_out) 
+        return render_template('page2.html',title = title,google_message= google_out, youtube_message=yt_out,books_message=books_out,gpt_message=gpt_out) 
         #wiki_message=wiki_out
     else:
         error_message = 'Data not found in session'

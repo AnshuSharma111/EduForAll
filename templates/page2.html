@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='page2.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles/page2.css')}}">
     <title>EduForAll</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     
         <nav id="navbar">
             <div>
-            <img src="/static/EduForAll Transparent.png" alt="EduForAll" id="logo" >
+            <a href = "/">
+                <img src="/static/sprites/transparentLogo.png" alt="EduForAll" id="logo">
+            </a>
             </div>
 
         <div class="searchb">
             <form id ="searchform"action="/process" method="post">
                 <input type="text" name="messageInput" id="bar" placeholder="Search">
-                <button class="searchbutton" type="submit"> <img src="icons/loupe.png" alt="search" width="30px" height="30px"> 
+                <button class="searchbutton" type="submit"> <img src="/static/sprites/searchIcon.png" alt="search" style="height: 15px;" >
                 </button>
             </form>
         </div>
@@ -29,8 +34,9 @@
            <div class="top">
                 <div class="summary">
                     <div class="divtitle">Summary</div>
-                    {% if wiki_message %}
-                    <pre style="white-space: pre-wrap; font-size: x-large;font-weight: 500;font-family:cursive;padding: 10px;">{{ wiki_message }}</pre>
+                    <div class="line"></div>
+                    {% if gpt_message %}
+                    <pre style="white-space: pre-wrap; font-size: x-large;font-weight: 500;font-family:p;padding: 10px;">{{ gpt_message }}</pre>
                     {% endif %}
                     {% if error %}
                     <p class="error">{{ error }}</p>
@@ -41,6 +47,7 @@
             <div class="centre">
                 <div class="link left">
                     <div class="divtitle">Website Links</div>
+                    <div class="line2"></div>
                     {% if google_message %}
         
                     <ul>
@@ -57,6 +64,7 @@
 
                 <div class="pdf right">
                     <div class="divtitle">PDF Links</div>
+                    <div class="line2"></div>
                     {% if books_message %}
         
                     <ul>
@@ -75,25 +83,37 @@
         <ul>
                 {% for link, num in youtube_message %}
                     {% if num < 5%}
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
                         {%endif%}
                         {% if num == 5%}
                             <br>
                         {% endif %}
                         {% if num >= 5%}
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen><iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
                             {% endif %}
                         {% endfor %}
                 </ul>
             {% endif %}
             </div>
         </main>
+        <div class="plus-icon" id="plusIcon" onclick="openSlider()">&#43;</div>
 
-        
+
+    <!-- Slider for adding notes -->
+    <div class="slider" id="slider">
+        <div class="slider-content">
+            <h2>Add Note</h2>
+            <input type="text" id="noteInput" placeholder="Enter your note">
+            <button onclick="addNote()">Add Note</button>
+            <span class="close-icon" onclick="closeSlider()">&#10006;</span>
+        </div>
     
-        <script src="/test.js"></script>
-
-
+    <div class="notes-container">
+      <h2>Your Notes</h2>
+      <div id="savedNotes"></div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='node.js') }}"></script>
 </body>
 
 </html>
