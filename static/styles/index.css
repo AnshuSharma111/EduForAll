@@ -127,8 +127,8 @@ li{
 
 .codlog{
         position: fixed;
-        top: 682px;
-        left: 435px;
+        top: 67vh;
+        left: 18vw;
         opacity: 0.2;
 }
 .errlog{
