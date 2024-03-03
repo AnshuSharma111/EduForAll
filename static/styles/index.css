@@ -106,3 +106,7 @@ input::placeholder,
 textarea::placeholder {
     font-size: 19.45px;
 }
+
+li{
+        list-style-type: decimal;
+}

@@ -10,4 +10,12 @@ Just search a topic and get:
 4) Relevant Videos
 and much more
 
-Minimise distractions and focus on your studies using this
+Minimise distractions and focus on your studies using this.
+
+Created by:
+Byte Bandits 2024
+Members:
+    a. Anshu Sharma
+    b. Hardik Kumar
+    c. Amitrajeet Konch
+    d. Yash Raturi

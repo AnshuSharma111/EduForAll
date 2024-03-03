@@ -31,10 +31,8 @@ body {
 }
 .left{
   border-radius: 30px;
-  padding: 8px;
   border:2px solid black;
   border-radius: 30px;
-  padding: 8px;
   border:2px solid black;
       height: 50vh;
       width: 40vw;
@@ -42,22 +40,22 @@ body {
       /* border: 3px solid black; */
       box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
       overflow-y: scroll;
-      padding: 15px;
+      padding: 25px;
       z-index: 2;
       
       left: 10px;
 }
 .right{
   border-radius: 30px;
-  padding: 8px;
   border:2px solid black;
+  overflow-wrap: break-word ;
       height: 50vh;
       width: 40vw;
       border-radius: 30px;
       /* border: 3px solid black; */
       box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
       overflow-y: scroll;
-      padding: 15px;
+      padding: 25px;
       z-index: 2;
       
       right: 10px;

@@ -50,37 +50,37 @@
                     <div class="line2"></div>
                     {% if google_message %}
         
-                    <ul>
+                    <ol>
                     {% for title, link in google_message %}
                         <li>
                             <h3>{{ title }}</h3>
                             <a href="{{ link }}" target="_blank"><h3>{{ link }}</h3></a>
                         </li>
                     {% endfor %}
-                    </ul>
+                    </ol>
                     {% endif %}
                 </div>
 
 
-                <div class="pdf right">
+                <div class="pdf right" >
                     <div class="divtitle">PDF Links</div>
                     <div class="line2"></div>
                     {% if books_message %}
         
-                    <ul>
+                    <ol>
                         {% for title, link in books_message %}
                             <li>
                                 <h3>{{ title }}</h3>
                                 <a href="{{ link }}" target="_blank"><h3>{{ link }}</h3></a>
                             </li>
                         {% endfor %}
-                    </ul>
+                    </ol>
                         {% endif %}
                 </div>
             </div>
             <div class="bottom">
                 {% if youtube_message %}
-        <ul>
+        <ol>
                 {% for link, num in youtube_message %}
                     {% if num < 5%}
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
@@ -92,7 +92,7 @@
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{link}}" frameborder="0" allowfullscreen></iframe>
                             {% endif %}
                         {% endfor %}
-                </ul>
+                </ol>
             {% endif %}
             </div>
         </main>
