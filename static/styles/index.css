@@ -133,8 +133,8 @@ li{
 }
 .errlog{
         position: fixed;
-        top: 733px;
-        left: 1071px;
+        top: 75vh;
+        left: 52vw;
         opacity: 0.2;
 }
 .flalog{
@@ -153,15 +153,15 @@ li{
 
 .loglog{
         position: fixed;
-        top: 309px;
-        left: 1580px;
+        top: 30vh;
+        left: 83vw;
         opacity: 0.2;
 }
 
 .ptlog{
         position: fixed;
-        top: 672px;
-        left: 1623px;
+        top: 63vh;
+        left: 80vw;
         opacity: 0.2;
 }
 
