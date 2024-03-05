@@ -55,7 +55,8 @@ function loadSavedNotes() {
     if (savedNotes.length > 0) {
         savedNotesContainer.innerHTML = '<ul>';
         savedNotes.forEach((note, index) => {
-            savedNotesContainer.innerHTML += `<li>${note} <button onclick="deleteNote(${index})">Delete</button></li>`;
+            savedNotesContainer.innerHTML += `<li>${note} <button onclick="deleteNote(${index})">Delete</button>
+            <button onclick="downloadNoteAsTxt(${index})">Download</button></li>`;
         });
         savedNotesContainer.innerHTML += '</ul>';
     }
@@ -69,4 +70,28 @@ function deleteNote(index) {
 
     // Reload notes
     loadSavedNotes();
+}
+
+// Function to download a note as a .txt file
+function downloadNoteAsTxt(index) {
+    let savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+    let noteText = savedNotes[index];
+    
+    // Create a Blob object to represent the data as a file
+    let blob = new Blob([noteText], { type: "text/plain" });
+    
+    // Create a temporary anchor element
+    let anchor = document.createElement("a");
+    anchor.download = "note_" + index + ".txt"; // Name of the downloaded file
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.style.display = "none"; // Hide the anchor element
+    
+    // Append the anchor to the body
+    document.body.appendChild(anchor);
+    
+    // Trigger a click event on the anchor
+    anchor.click();
+    
+    // Remove the anchor from the body
+    document.body.removeChild(anchor);
 }

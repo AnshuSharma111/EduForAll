@@ -35,8 +35,8 @@
                 <div class="summary">
                     <div class="divtitle">Summary</div>
                     <div class="line"></div>
-                    {% if gpt_message %}
-                    <pre style="white-space: pre-wrap; font-size: x-large;font-weight: 500;font-family:p;padding: 10px;">{{ gpt_message }}</pre>
+                    {% if wiki_message %}
+                    <pre style="white-space: pre-wrap; font-size: x-large;font-weight: 500;font-family:p;padding: 10px;">{{ wiki_message }}</pre>
                     {% endif %}
                     {% if error %}
                     <p class="error">{{ error }}</p>
@@ -96,6 +96,8 @@
             {% endif %}
             </div>
         </main>
+
+        
         <div class="plus-icon" id="plusIcon" onclick="openSlider()">&#43;</div>
 
 

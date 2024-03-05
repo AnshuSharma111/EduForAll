@@ -4,8 +4,8 @@ from pytube import Search
 import openai
 
 #API for chatGPT
-API_KEY = "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"
-client = openai.OpenAI(api_key=API_KEY)
+# API_KEY = "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"
+# client = openai.OpenAI(api_key=API_KEY)
 
 def wiki_summary(data: str)-> str:
     wiki_topic = "_".join(data.split())
@@ -27,20 +27,20 @@ def wiki_summary(data: str)-> str:
         wiki_out = 'Failed to retrieve Wikipedia content'
     return wiki_out
 
-def chatgpt_res(data:str)->str:
-    question = f"Summarise topic {data} for me in 250 words.Give the best explanation you can."
+# def chatgpt_res(data:str)->str:
+#     question = f"Summarise topic {data} for me in 250 words.Give the best explanation you can."
 
-    response = client.chat.completions.create(
-        model = "gpt-3.5-turbo",
-        messages=[{"role" : "user", "content" : question}],
-        stream=True
-    )
+#     response = client.chat.completions.create(
+#         model = "gpt-3.5-turbo",
+#         messages=[{"role" : "user", "content" : question}],
+#         stream=True
+#     )
 
-    output = ""
-    for chunk in response:
-        if chunk.choices[0].delta.content is not None:
-            output += chunk.choices[0].delta.content
-    return output
+#     output = ""
+#     for chunk in response:
+#         if chunk.choices[0].delta.content is not None:
+#             output += chunk.choices[0].delta.content
+#     return output
 
 def google_res(data:str)->str:
     google_url = f"https://www.google.com/search?q={data}"

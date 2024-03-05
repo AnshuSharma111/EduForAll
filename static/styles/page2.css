@@ -171,6 +171,7 @@ body {
 }
 
 .plus-icon {
+  z-index: 2;
   position: fixed;
   bottom: 20px;
   right: 20px;
