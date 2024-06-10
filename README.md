@@ -17,5 +17,5 @@ Byte Bandits 2024
 Members:
     a. Anshu Sharma
     b. Hardik Kumar
-    c. Amitrajeet 
+    c. Amitrajeet Konch
     d. Yash Raturi
