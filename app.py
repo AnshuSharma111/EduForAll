@@ -8,11 +8,20 @@ app.secret_key = '1qWrst7z'
 def index():
     return render_template('index.html')
 
+
+
 @app.route('/process', methods=['POST'])
 def process():
     data = request.form.get('messageInput')
-    session['data'] = data  # Store the data in the session
-    return redirect(url_for('result'))
+    if backend.contains_inappropriate_words(data):
+        session['error'] = 'Your search query contains inappropriate content.'
+        return redirect(url_for('error_page'))
+    else:
+        session['data'] = data  # Store the data in the session
+        return redirect(url_for('result'))
+
+    
+
 
 @app.route('/result')
 def result():
@@ -40,6 +49,11 @@ def result():
     else:
         error_message = 'Data not found in session'
         return render_template('page2.html', error=error_message)
+
+@app.route('/error')
+def error_page():
+    error_message = session.get('error', 'Something went wrong.')
+    return render_template('error.html', message=error_message)
 
 if __name__ == '__main__':
     app.run()

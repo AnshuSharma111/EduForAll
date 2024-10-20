@@ -1,11 +1,35 @@
+import re
 import requests
 from bs4 import BeautifulSoup
 from pytube import Search
-import openai
 
 #API for chatGPT
 # API_KEY = "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"
 # client = openai.OpenAI(api_key=API_KEY)
+
+
+def load_inappropriate_words(file_path: str) -> list:
+    """Read inappropriate words from a text file and return as a list."""
+    try:
+        with open(file_path, 'r') as file:
+            words = [line.strip().lower() for line in file if line.strip()]
+        return words
+    except FileNotFoundError:
+        print("Inappropriate words file not found.")
+        return []
+
+# Load inappropriate words once when the backend starts
+INAPPROPRIATE_WORDS = load_inappropriate_words('inappropriate_words.txt')
+
+def contains_inappropriate_words(query: str) -> bool:
+    """Check if the query contains any inappropriate words."""
+    query = query.lower()  # Convert query to lowercase
+    query_words = query.split()  # Split the query into words
+    for word in query_words:
+        if word in INAPPROPRIATE_WORDS:
+            return True  # Block the query if any inappropriate word is found
+    return False
+
 
 def wiki_summary(data: str)-> str:
     wiki_topic = "_".join(data.split())
@@ -42,6 +66,10 @@ def wiki_summary(data: str)-> str:
 #             output += chunk.choices[0].delta.content
 #     return output
 
+
+
+
+
 def google_res(data:str)->str:
     google_url = f"https://www.google.com/search?q={data}"
     google_headers = {
@@ -59,6 +87,7 @@ def google_res(data:str)->str:
     else:
         google_out = [("Failed to retrieve","search results from Google")]
     return google_out
+
 
 def youtube_links(query, num_results=10):
     i = 0
